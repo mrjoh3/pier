@@ -1,0 +1,48 @@
+---
+title: "Basic Eample of the PieR Package"
+output:
+  html_document:
+    fig_caption: yes
+    self_contained: no
+    toc: no
+  pdf_document:
+    toc: no
+---
+
+
+
+## Data Setup
+
+
+```{r data}
+
+fd <- now()-months(12)
+
+data <- data.frame(label = c('Dust','Emergency','Noise','Odour','Waste','Water'),
+                   value = c(104,19,638,1250,187,140),
+                   color = c("#1B9E77","#D95F02","#7570B3","#E7298A","#66A61E","#E6AB02"))
+
+```
+
+
+## Usage with Standard Defaults
+```{r simple}
+
+pier(data)
+
+```
+
+
+## Advanced Usage
+
+```{r advanced}
+
+pier(reps) %>%
+    pie.size(inner=70, outer=100, width=500, height=500) %>%
+    pie.title(text='Pollution Reports', font='Impact', location='pie-center') %>%
+    pie.subtitle(text='by Segement Type') %>%
+    pie.footer(text=sprintf('Pollution Reports Since %s', format(fd, '%a %B %d, %Y')),
+               location = 'bottom-left') %>%
+    pie.tooltips()
+
+```

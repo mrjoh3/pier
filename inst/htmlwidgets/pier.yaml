@@ -1,0 +1,11 @@
+dependencies:
+  - name: d3
+    version: 3.5.16
+    src: htmlwidgets/lib/d3-3.5.16
+    script:
+      - d3.min.js
+  - name: d3pie
+    version: 0.1.8
+    src: htmlwidgets/lib/d3pie-0.1.8
+    script:
+      - d3pie.min.js
