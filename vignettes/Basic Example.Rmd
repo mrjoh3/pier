@@ -16,6 +16,8 @@ output:
 
 ```{r data}
 
+library(lubridate)
+
 fd <- now()-months(12)
 
 data <- data.frame(label = c('Dust','Emergency','Noise','Odour','Waste','Water'),
@@ -37,7 +39,7 @@ pier(data)
 
 ```{r advanced}
 
-pier(reps) %>%
+pier(data) %>%
     pie.size(inner=70, outer=100, width=500, height=500) %>%
     pie.title(text='Pollution Reports', font='Impact', location='pie-center') %>%
     pie.subtitle(text='by Segement Type') %>%

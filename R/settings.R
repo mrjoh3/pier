@@ -10,9 +10,7 @@ pie.size <- function(pier,
                 pieInnerRadius=sprintf('%s%%', inner),
                 pieOuterRadius=sprintf('%s%%', outer))
 
-    size <- Filter(Negate(function(x) is.null(unlist(x))), size)
-
-    pier$x$size <- toJSON(size, auto_unbox = TRUE)
+    pier$x$size <- Filter(Negate(function(x) is.null(unlist(x))), size)
 
     return(pier)
 }
@@ -33,9 +31,8 @@ pie.title <- function(pier,
 
     header <- list(title = title,
                    location = location)
-    header <- Filter(Negate(function(x) is.null(unlist(x))), header)
 
-    pier$x$header <- toJSON(header, auto_unbox = TRUE)
+    pier$x$header <- Filter(Negate(function(x) is.null(unlist(x))), header)
 
     return(pier)
 }
@@ -55,15 +52,13 @@ pie.subtitle <- function(pier,
                  color = colour)
     subtitle <- Filter(Negate(function(x) is.null(unlist(x))), subtitle)
 
-    # convert header back to list in order to append new options
-    header = fromJSON(pier$x$header)
+    header = pier$x$header
 
     header$subtitle <- subtitle
     header$titleSubtitlePadding <- padding
 
-    header <- Filter(Negate(function(x) is.null(unlist(x))), header)
 
-    pier$x$header <- toJSON(header, auto_unbox = TRUE)
+    pier$x$header <- Filter(Negate(function(x) is.null(unlist(x))), header)
 
     return(pier)
 }
@@ -83,9 +78,8 @@ pie.footer <- function(pier,
                     font = font,
                     color = colour,
                   location = location)
-    footer <- Filter(Negate(function(x) is.null(unlist(x))), footer)
 
-    pier$x$footer <- toJSON(footer, auto_unbox = TRUE)
+    pier$x$footer <- Filter(Negate(function(x) is.null(unlist(x))), footer)
 
     return(pier)
 }
@@ -126,7 +120,7 @@ pie.tooltips <- function(pier,
 
     if (length(styles) > 0) tooltips$styles = styles
 
-    pier$x$tooltips <- toJSON(tooltips, auto_unbox = TRUE)
+    pier$x$tooltips <- tooltips #toJSON(tooltips, auto_unbox = TRUE)
 
     return(pier)
 }

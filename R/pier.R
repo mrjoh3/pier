@@ -10,8 +10,7 @@ pier <- function(data, width=400, height=400, header=NULL, settings= NULL) {
     )
 
     if (!is.null(header)) {
-        title = list(title=list(text=header))
-        x$header = toJSON(title, auto_unbox = TRUE)
+        x$header = list(title=list(text=header))
     }
 
     # create the widget
