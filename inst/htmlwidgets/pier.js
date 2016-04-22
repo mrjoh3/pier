@@ -19,9 +19,7 @@ HTMLWidgets.widget({
         size: x.size,
         footer: x.footer,
         tooltips: x.tooltips,
-        data: {
-            content: x.data
-        }
+        data: x.data
     });
 
     },

@@ -1,11 +1,30 @@
 #' @import htmlwidgets
 #' @export
-pier <- function(data, width=400, height=400, header=NULL, settings= NULL) {
+pier <- function(data,
+                 width=400, height=400, header=NULL,
+                 sortOrder = NULL, smallSegmentGrouping = FALSE,
+                 settings = NULL, ...) {
 
-    data = toJSON(data)
+    stopifnot(all(c('label','value','color') %in% colnames(data)))
+
+    data <- list(sortOrder = sortOrder,
+                 content = toJSON(data))
+
+    if (smallSegmentGrouping) {
+        smallSegmentGrouping <- list(enabled = TRUE,
+                                    value = 1,
+                                    valueType = 'percentage',
+                                    label = 'Other',
+                                    color = '#cccccc')
+        smallSegmentGrouping <- modifyList(smallSegmentGrouping, list(...))
+
+        data$smallSegmentGrouping <- smallSegmentGrouping
+    }
+
+
     # pass the data and settings using 'x'
     x <- list(
-        data = data,
+        data = Filter(Negate(function(x) is.null(unlist(x))), data) ,
         settings = settings
     )
 
