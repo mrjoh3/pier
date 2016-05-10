@@ -1,11 +1,36 @@
+
+#' @title pier
+#' @param data data.frame must contain colnames value, label and color
+#' @param width integer width, pixel-width
+#' @param height integer height, pixel-height
+#' @param header character, simple header above plot with no formatting. For more
+#' control use `pier.title()`
+#' @param sortOrder character must be one of 'none', 'random', 'value-asc', 'value-desc'
+#' 'label- asc', 'label-desc'
+#' @param smallSegmentGrouping booleen option to combine segments below percent threshold
+#' @param value smallSegmentGrouping option threshold for grouping segments
+#' @param valueType smallSegmentGrouping option must be 'percentage' or 'value'
+#' @param label character smallSegmentGrouping option default is 'Other'
+#' @param color character smallSegmentGrouping option default is '#cccccc'
+#' @examples
+#'\dontrun{
+#' data.frame(value = c(40, 20, 30),
+#'            label = c('red', 'green', 'blue'),
+#'            color = c('red', 'green', 'blue')) %>%
+#'   pier()
+#'   }
 #' @import htmlwidgets
 #' @export
 pier <- function(data,
                  width=400, height=400, header=NULL,
-                 sortOrder = NULL, smallSegmentGrouping = FALSE,
+                 sortOrder = 'none', smallSegmentGrouping = FALSE,
                  settings = NULL, ...) {
 
-    stopifnot(all(c('label','value','color') %in% colnames(data)))
+    stopifnot(all(c('label','value','color') %in% colnames(data)),
+              sortOrder %in% c('none','random',
+                               'value-asc', 'value-desc',
+                               'label- asc', 'label-desc')
+              )
 
     data <- list(sortOrder = sortOrder,
                  content = toJSON(data))

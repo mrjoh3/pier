@@ -1,12 +1,21 @@
 Package: pier
 Type: Package
-Title: What the Package Does (Title Case)
+Title: D3 Pie Charts Via R
 Version: 0.1
 Date: 2016-03-09
-Author: Who wrote it
-Maintainer: Who to complain to <yourfault@somewhere.net>
-Description: More about what it does (maybe more than one line)
-License: What license is it under?
+Authors@R: c(
+    person("Matt", "Johnson", email = "mrjoh3@gmail.com",
+    role = c("aut", "cre"))
+    )
+Description: The pier (pronounced pie-R) package is used to create D3 pie charts via R. The
+    package is a wrapper for the [d3pie](http://d3pie.org/) javascript library.
+URL: https://github.com/mrjoh3/pier
+BugReports: https://github.com/mrjoh3/pier/issues
+License: GPL (>= 3)
 LazyData: TRUE
 Depends:
     jsonlite
+RoxygenNote: 5.0.1
+Suggests: knitr,
+    rmarkdown
+VignetteBuilder: knitr
