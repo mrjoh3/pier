@@ -211,6 +211,67 @@ pie.tooltips <- function(pier,
 }
 
 
+#' @title pie.labels
+#' @description Pass Labelling options to pier object
+#' @param pier object
+#' @param outer list
+#' @param inner list
+#' @param mainLabel list
+#' @param percentage list
+#' @param value list
+#' @param lines list
+
+#' @examples
+#'\dontrun{
+#' data.frame(value = c(40, 20, 30),
+#'            label = c('red', 'green', 'blue'),
+#'            color = c('red', 'green', 'blue')) %>%
+#'   pier() %>%
+#'   pie.labels(mainLabel = list(font = 'Impact',
+#'                               size = 14))
+#'   }
+#' @export
+pie.labels <- function(pier, ...) {
+
+    labels <- list(
+        outer = list(
+            format = "label",
+            hideWhenLessThanPercentage = NULL,
+            pieDistance = 30
+        ),
+        inner = list(
+            format = "percentage",
+            hideWhenLessThanPercentage = NULL
+        ),
+        mainLabel = list(
+            color = "#333333",
+            font = "arial",
+            fontSize = 10
+        ),
+        percentage = list(
+            color = "#dddddd",
+            font = "arial",
+            fontSize = 10,
+            decimalPlaces = 0
+        ),
+        value = list(
+            color = "#cccc44",
+            font = "arial",
+            fontSize = 10
+        ),
+        lines = list(
+            enabled = TRUE,
+            style = "curved",
+            color = "segment" # "segment" or a hex color
+        )
+    )
+
+    labels <- modifyList(labels, list(...))
+
+    pier$x$labels <- labels #toJSON(tooltips, auto_unbox = TRUE)
+
+    return(pier)
+}
 
 
 
