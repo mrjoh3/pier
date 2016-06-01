@@ -35,8 +35,8 @@ data <- data.frame(label = c('Environment','Education','Business','Community'),
 pier(data)
 ```
 
-<!--html_preserve--><div id="htmlwidget-3748" style="width:400px;height:400px;" class="pier html-widget"></div>
-<script type="application/json" data-for="htmlwidget-3748">{"x":{"data":{"sortOrder":"none","content":[{"label":"Environment","value":104,"color":"#D7191C"},{"label":"Education","value":19,"color":"#FDAE61"},{"label":"Business","value":638,"color":"#ABDDA4"},{"label":"Community","value":1250,"color":"#2B83BA"}]},"settings":null},"evals":[],"jsHooks":[]}</script><!--/html_preserve-->
+<div id="htmlwidget-3748" style="width:400px;height:400px;" class="pier html-widget"></div>
+<script type="application/json" data-for="htmlwidget-3748">{"x":{"data":{"sortOrder":"none","content":[{"label":"Environment","value":104,"color":"#D7191C"},{"label":"Education","value":19,"color":"#FDAE61"},{"label":"Business","value":638,"color":"#ABDDA4"},{"label":"Community","value":1250,"color":"#2B83BA"}]},"settings":null},"evals":[],"jsHooks":[]}</script>
 
 
 
