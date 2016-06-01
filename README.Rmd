@@ -1,0 +1,56 @@
+---
+title: "pier"
+#author: "mj"
+#date: "10 May 2016"
+output: 
+    html_document:
+        keep_md: true
+---
+
+The `pier` package (pronounced pie-r) is a wrapper, or [htmlwidget](http://www.htmlwidgets.org/), for the [d3pie](http://d3pie.org/) javascript library by [Benjamin Keen](https://github.com/benkeen). If you are just wanting to generate a pie chart the d3pie website has a fantastic [generator](http://d3pie.org/#generator) that will create the code that you need. If you are wanting create a chart using [R](https://www.r-project.org/) for embedding in a Rmarkdown document or Shiny App, then you are in the right place.  
+
+The `d3pie` library is very versatile and includes a lot of options. Currently this package only wraps the [configuration object](http://d3pie.org/#docs-configuration). Even with this current limitation a wide range of options are available. 
+
+Currently the intention is to wrap the entire [`d3pie` api](http://d3pie.org/#docs-api). 
+
+
+## Installation
+
+You probably already guesssed this bit.
+
+```{r install, eval=FALSE}
+
+devtools::install_github("mrjoh3/pier")
+
+```
+
+
+## Usage
+
+The `pier` package is intended to be as simple and lightweight as possible. As a starting point the data input must be a `data.frame` with three required columns: `label`, `value` and `color`. From this point most of the defaults from `d3pie` are carried over.  
+
+```{r data, warning=FALSE, message=FALSE, fig.align='center'}
+
+library(pier)
+
+data <- data.frame(label = c('Environment','Education','Business','Community'),
+                   value = c(104,19,638,1250),
+                   color = RColorBrewer::brewer.pal(4, 'Spectral'))
+
+pier(data)
+
+```
+
+
+## Piping
+
+The package also imports the [migrittr](https://cran.r-project.org/web/packages/magrittr/vignettes/magrittr.html) piping function (`%>%`) to simplify syntax.
+
+```{r pipe, fig.align='center'}
+
+data %>%
+    pier() %>%
+    pie.header('My New Header')
+
+```
+
