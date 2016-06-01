@@ -5,13 +5,48 @@ title: "pier"
 output: 
     html_document:
         keep_md: true
+        self_contained: yes
 ---
+
+
+```{r setup, echo=FALSE, warning=FALSE, message=FALSE}
+
+library(webshot)
+
+# thanks to https://rud.is/b/2016/03/04/capturing-wild-widgets-with-webshot/
+capture_widget <- function(wdgt,
+                           output=c("path", "markdown", "html", "inline"),
+                           height, width,
+                           png_render_path=tempfile(fileext=".png")) {
+ 
+  wdgt_html_tf <- tempfile(fileext=".html")
+ 
+  htmlwidgets::saveWidget(wdgt, wdgt_html_tf)
+ 
+  webshot::webshot(url=sprintf("file://%s", wdgt_html_tf),
+                   selector="#htmlwidget_container",
+                   file=png_render_path,
+                   vwidth=width, vheight=height,
+                   delay = 2, expand = c(0,0,40,80))
+ 
+  # done with HTML
+  unlink(wdgt_html_tf)
+ 
+  switch(match.arg(output, c("path", "markdown", "html", "inline")),
+             `path`=png_render_path,
+         `markdown`=sprintf("![widget](file://%s)", png_render_path),
+             `html`=sprintf("<img src='file://%s'/>", png_render_path),
+           `inline`=base64::img(png_render_path))
+ 
+}
+```
 
 The `pier` package (pronounced pie-r) is a wrapper, or [htmlwidget](http://www.htmlwidgets.org/), for the [d3pie](http://d3pie.org/) javascript library by [Benjamin Keen](https://github.com/benkeen). If you are just wanting to generate a pie chart the d3pie website has a fantastic [generator](http://d3pie.org/#generator) that will create the code that you need. If you are wanting create a chart using [R](https://www.r-project.org/) for embedding in a Rmarkdown document or Shiny App, then you are in the right place.  
 
 The `d3pie` library is very versatile and includes a lot of options. Currently this package only wraps the [configuration object](http://d3pie.org/#docs-configuration). Even with this current limitation a wide range of options are available. 
 
-Currently the intention is to wrap the entire [`d3pie` api](http://d3pie.org/#docs-api). 
+Currently the intention is to wrap the entire `[d3pie](http://d3pie.org/#docs-api)` api. 
+
 
 
 ## Installation
@@ -27,7 +62,7 @@ devtools::install_github("mrjoh3/pier")
 
 ## Usage
 
-The `pier` package is intended to be as simple and lightweight as possible. As a starting point the data input must be a `data.frame` with three required columns: `label`, `value` and `color`. From this point most of the defaults from `d3pie` are carried over.  
+The `pier` package is intended to be as simple and lightweight as possible. As a starting point the data input must be a `data.frame` with three required columns: `label`, `value` and `color`. From this point most of the defaults from `d3pie` are carried over.^[Note that all examples here has lost their interactivity. Static image were captured using the `[webshot](https://github.com/wch/webshot)` package; with thanks to [rud.is](https://rud.is/b/2016/03/04/capturing-wild-widgets-with-webshot/) for an example function]  
 
 ```{r data, warning=FALSE, message=FALSE, fig.align='center'}
 
@@ -37,7 +72,16 @@ data <- data.frame(label = c('Environment','Education','Business','Community'),
                    value = c(104,19,638,1250),
                    color = RColorBrewer::brewer.pal(4, 'Spectral'))
 
-pier(data)
+simple.pie <- pier(data)
+
+```
+
+```{r data.webshot, echo=FALSE, warning=FALSE, message=FALSE, comment=NA, results='asis'}
+
+cat(
+    capture_widget(simple.pie,
+                   'inline', height=400, width=800)
+)
 
 ```
 
@@ -46,11 +90,20 @@ pier(data)
 
 The package also imports the [migrittr](https://cran.r-project.org/web/packages/magrittr/vignettes/magrittr.html) piping function (`%>%`) to simplify syntax.
 
-```{r pipe, fig.align='center'}
+```{r pipe, warning=FALSE, message=FALSE, fig.align='center'}
 
-data %>%
-    pier() %>%
-    pie.header('My New Header')
+piped.pie <- data %>%
+                pier() %>%
+                pie.header('My New Header')
 
 ```
 
+
+```{r pipe.webshot, echo=FALSE, warning=FALSE, message=FALSE, comment=NA, results='asis'}
+
+cat(
+    capture_widget(piped.pie,
+                   'inline', height=400, width=800)
+)
+
+```
