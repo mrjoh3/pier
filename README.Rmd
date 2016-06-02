@@ -17,7 +17,7 @@ library(webshot)
 capture_widget <- function(wdgt,
                            output=c("path", "markdown", "html", "inline"),
                            height, width,
-                           png_render_path=tempfile(fileext=".png")) {
+                           png_render_path=tempfile(tmpdir = 'img', fileext=".png")) {
  
   wdgt_html_tf <- tempfile(fileext=".html")
  
@@ -34,8 +34,8 @@ capture_widget <- function(wdgt,
  
   switch(match.arg(output, c("path", "markdown", "html", "inline")),
              `path`=png_render_path,
-         `markdown`=sprintf("![widget](file://%s)", png_render_path),
-             `html`=sprintf("<img src='file://%s'/>", png_render_path),
+         `markdown`=sprintf("![widget](%s)", png_render_path),
+             `html`=sprintf("<img src='%s'/>", png_render_path),
            `inline`=base64::img(png_render_path))
  
 }
@@ -62,7 +62,7 @@ devtools::install_github("mrjoh3/pier")
 
 ## Usage
 
-The `pier` package is intended to be as simple and lightweight as possible. As a starting point the data input must be a `data.frame` with three required columns: `label`, `value` and `color`. From this point most of the defaults from `d3pie` are carried over.^[Note that all examples here has lost their interactivity. Static image were captured using the `[webshot](https://github.com/wch/webshot)` package; with thanks to [rud.is](https://rud.is/b/2016/03/04/capturing-wild-widgets-with-webshot/) for an example function]  
+The `pier` package is intended to be as simple and lightweight as possible. As a starting point the data input must be a `data.frame` with three required columns: `label`, `value` and `color`. From this point most of the defaults from `d3pie` are carried over. Note that all examples here has lost their interactivity. Static image were captured using the `[webshot](https://github.com/wch/webshot)` package; with thanks to [rud.is](https://rud.is/b/2016/03/04/capturing-wild-widgets-with-webshot/) for an example function  
 
 ```{r data, warning=FALSE, message=FALSE, fig.align='center'}
 
@@ -80,7 +80,7 @@ simple.pie <- pier(data)
 
 cat(
     capture_widget(simple.pie,
-                   'inline', height=400, width=800)
+                   'markdown', height=400, width=800)
 )
 
 ```
@@ -103,7 +103,7 @@ piped.pie <- data %>%
 
 cat(
     capture_widget(piped.pie,
-                   'inline', height=400, width=800)
+                   'markdown', height=400, width=800)
 )
 
 ```
