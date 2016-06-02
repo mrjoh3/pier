@@ -214,13 +214,42 @@ pie.tooltips <- function(pier,
 #' @title pie.labels
 #' @description Pass Labelling options to pier object
 #' @param pier object
-#' @param outer list
-#' @param inner list
-#' @param mainLabel list
-#' @param percentage list
-#' @param value list
-#' @param lines list
-
+#' @param outer list with options:
+##' \itemize{
+##'  \item{format}{character default 'label'}
+##'  \item{hideWhenLessThanPercentage}{: boolean default NULL}
+##'  \item{pieDistance}{: numeric pixels}
+##' }
+#' @param inner list with options:
+##' \itemize{
+##'  \item{format}{: character default 'percentage'}
+##'  \item{hideWhenLessThanPercentage}{: boolean default NULL}
+##' }
+#' @param mainLabel list with options:
+##' \itemize{
+##'  \item{color}{: character default '#333333'}
+##'  \item{font}{: character default 'arial'}
+##'  \item{fontSize}{: integer pixels}
+##' }
+#' @param percentage list with options:
+##' \itemize{
+##'  \item{color}{: character default '#dddddd'}
+##'  \item{font}{: character default 'arial'}
+##'  \item{fontSize}{: integer pixels}
+##'  \item{decimalPlaces}{: integer}
+##' }
+#' @param value list with options:
+##' \itemize{
+##'  \item{color}{: character default '#cccc44'}
+##'  \item{font}{: character default 'arial'}
+##'  \item{fontSize}{: integer pixels}
+##' }
+#' @param lines list with options:
+##' \itemize{
+##'  \item{enabled}{: boolean}
+##'  \item{style}{: character default }
+##'  \item{color}{: character "segment" or a hex color}
+##' }
 #' @examples
 #'\dontrun{
 #' data.frame(value = c(40, 20, 30),
@@ -274,6 +303,54 @@ pie.labels <- function(pier, ...) {
 }
 
 
+#' @title pie.effects
+#' @description Pass effects options to pier object
+#' @param pier object
+#' @param load list with options:
+##' \itemize{
+##'  \item{effect}{: character one of 'none', 'default}
+##'  \item{speed}{: numeric milliseconds}
+##' }
+#' @param pullOutSegmentOnClick list with options:
+##' \itemize{
+##'  \item{effect}{: character one of 'none', 'linear', 'bounce', 'elastic', 'back'}
+##'  \item{speed}{: integer milliseconds}
+##'  \item{size}{: integer pixels}
+##' }
+#' @param highlightSegmentOnMouseover boolean
+#' @param highlightLuminosity numeric
+#' @examples
+#'\dontrun{
+#' data.frame(value = c(40, 20, 30),
+#'            label = c('red', 'green', 'blue'),
+#'            color = c('red', 'green', 'blue')) %>%
+#'   pier() %>%
+#'   pie.effects(load  = list(speed = 2000),
+#'               highlightLuminosity = .2)
+#'   }
+#' @export
+pie.effects <- function(pier, ...) {
+
+    effects = list(
+        load = list(
+            effect = "default", #// none / default
+            speed = 1000
+        ),
+        pullOutSegmentOnClick = list(
+            effect = "bounce", #// none / linear / bounce / elastic / back
+            speed = 300,
+            size = 10
+        ),
+        highlightSegmentOnMouseover = TRUE,
+        highlightLuminosity = -0.2
+    )
+
+    effects <- modifyList(effects, list(...))
+
+    pier$x$effects <- effects #toJSON(tooltips, auto_unbox = TRUE)
+
+    return(pier)
+}
 
 
 
