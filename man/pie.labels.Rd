@@ -61,7 +61,7 @@ data.frame(value = c(40, 20, 30),
            color = c('red', 'green', 'blue')) \%>\%
   pier() \%>\%
   pie.labels(mainLabel = list(font = 'Impact',
-                              size = 14))
+                              fontSize = 14))
   }
 }
 

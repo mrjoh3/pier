@@ -257,7 +257,7 @@ pie.tooltips <- function(pier,
 #'            color = c('red', 'green', 'blue')) %>%
 #'   pier() %>%
 #'   pie.labels(mainLabel = list(font = 'Impact',
-#'                               size = 14))
+#'                               fontSize = 14))
 #'   }
 #' @export
 pie.labels <- function(pier, ...) {
@@ -351,6 +351,94 @@ pie.effects <- function(pier, ...) {
 
     return(pier)
 }
+
+
+#' @title pie.misc
+#' @description Pass misc options to pier object
+#' @param pier object
+#' @param colors list with options:
+##' \itemize{
+##'  \item{background}{: character color name or hex. Default is NULL results in tansparent}
+##'  \item{segments}{: character vector segment colors only works where not defined in data}
+##'  \item{segmentStroke}{: character color name or hex}
+##' }
+#' @param gradient list with options:
+##' \itemize{
+##'  \item{enabled}{: boolean}
+##'  \item{percentage}{: integer gradient percent}
+##'  \item{color}{: character color name or hex}
+##' }
+#' @param canvasPadding list with options:
+##' \itemize{
+##'  \item{top}{: integer pixels}
+##'  \item{right}{: integer pixels}
+##'  \item{bottom}{: integer pixels}
+##'  \item{left}{: integer pixels}
+##' }
+#' @param pieCenterOffset list with options:
+##' \itemize{
+##'  \item{x}{: integer pixels}
+##'  \item{y}{: integer pixels}
+##' }
+#' @param cssPrefix NULL
+#' @examples
+#'\dontrun{
+#' data.frame(value = c(40, 20, 30),
+#'            label = c('red', 'green', 'blue'),
+#'            color = c('red', 'green', 'blue')) %>%
+#'   pier() %>%
+#'   pie.misc(gradient  = list(enabled = TRUE))
+#'   }
+#' @export
+pie.misc <- function(pier, ...) {
+
+    misc = list(
+        colors = list(
+            background = NULL, #// transparent
+            segments = c(
+                "#2484c1", "#65a620", "#7b6888", "#a05d56", "#961a1a",
+                "#d8d23a", "#e98125", "#d0743c", "#635222", "#6ada6a",
+                "#0c6197", "#7d9058", "#207f33", "#44b9b0", "#bca44a",
+                "#e4a14b", "#a3acb2", "#8cc3e9", "#69a6f9", "#5b388f",
+                "#546e91", "#8bde95", "#d2ab58", "#273c71", "#98bf6e",
+                "#4daa4b", "#98abc5", "#cc1010", "#31383b", "#006391",
+                "#c2643f", "#b0a474", "#a5a39c", "#a9c2bc", "#22af8c",
+                "#7fcecf", "#987ac6", "#3d3b87", "#b77b1c", "#c9c2b6",
+                "#807ece", "#8db27c", "#be66a2", "#9ed3c6", "#00644b",
+                "#005064", "#77979f", "#77e079", "#9c73ab", "#1f79a7"
+                ),
+            segmentStroke = "#ffffff"
+        ),
+        gradient = list(
+            enabled = FALSE,
+            percentage = 95,
+            color = "#000000"
+        ),
+        canvasPadding = list(
+            top = 5,
+            right = 5,
+            bottom = 5,
+            left = 5
+        ),
+        pieCenterOffset = list(
+            x = 0,
+            y = 0
+        ),
+        cssPrefix = NULL
+    )
+
+    misc <- modifyList(misc, list(...))
+
+    pier$x$misc <- misc #toJSON(tooltips, auto_unbox = TRUE)
+
+    return(pier)
+}
+
+
+
+
+
+
 
 
 

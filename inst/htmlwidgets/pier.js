@@ -20,6 +20,8 @@ HTMLWidgets.widget({
         footer: x.footer,
         tooltips: x.tooltips,
         labels: x.labels,
+        effects: x.effects,
+        misc: x.misc,
         data: x.data
     });
 

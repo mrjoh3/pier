@@ -1,0 +1,68 @@
+---
+title: "Basic Eample of the pier Package"
+author: "Matt Johnson"
+date: "`r Sys.Date()`"
+output: 
+  rmarkdown::html_vignette:
+    fig_caption: yes
+    self_contained: yes
+    toc: no
+  pdf_document:
+    toc: no
+vignette: >
+  %\VignetteIndexEntry{Basic usage of the pier package}
+  %\VignetteEngine{knitr::rmarkdown} 
+  %\VignetteEncoding{UTF-8}
+---
+
+
+
+## Data Setup
+
+
+```{r data}
+
+library(pier)
+
+data <- data.frame(label = c('Environment','Education','Business','Community'),
+                   value = c(104,19,638,1250),
+                   color = c("#A6CEE3","#1F78B4","#B2DF8A","#33A02C"))
+
+```
+
+
+## Usage with Standard Defaults
+```{r simple}
+
+pier(data)
+
+```
+
+## Small Groupings
+
+Currently this feature works as expected but the labels are lost. 
+
+```{r small}
+
+data %>%
+    pier(smallSegmentGrouping = TRUE, value = 10)
+
+```
+
+
+## Advanced Usage
+
+```{r advanced}
+
+data %>%
+    pier() %>%
+    pie.size(inner=70, outer=100, width=500, height=500) %>%
+    pie.header(text='Segments', font='Impact', location='pie-center') %>%
+    pie.subtitle(text='by Type') %>%
+    pie.footer(text='Economic Segments using fake data.',
+               location = 'bottom-left') %>%
+    pie.tooltips()
+
+```
+
+
