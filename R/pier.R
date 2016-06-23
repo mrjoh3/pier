@@ -22,7 +22,7 @@
 #' @import htmlwidgets
 #' @export
 pier <- function(data,
-                 width=400, height=400, header=NULL,
+                 width=NULL, height=NULL, header=NULL,
                  sortOrder = 'none', smallSegmentGrouping = FALSE,
                  settings = NULL, ...) {
 
@@ -64,7 +64,7 @@ pier <- function(data,
 
 
 #' @export
-pierOutput <- function(outputId, width = "100%", height = "400px") {
+pierOutput <- function(outputId, width = "100%", height = "100%") {
     shinyWidgetOutput(outputId, "pier", width, height, package = "pier")
 }
 #' @export

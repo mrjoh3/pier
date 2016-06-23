@@ -64,7 +64,7 @@ devtools::install_github("mrjoh3/pier")
 
 The `pier` package is intended to be as simple and lightweight as possible. As a starting point the data input must be a `data.frame` with three required columns: `label`, `value` and `color`. From this point most of the defaults from `d3pie` are carried over. Note that all examples here has lost their interactivity. Static image were captured using the [webshot](https://github.com/wch/webshot) package; with thanks to [rud.is](https://rud.is/b/2016/03/04/capturing-wild-widgets-with-webshot/) for an example function  
 
-```{r data, warning=FALSE, message=FALSE, fig.align='center'}
+```{r data, warning=FALSE, message=FALSE, fig.align='center', fig.width=8}
 
 library(pier)
 
@@ -80,7 +80,7 @@ simple.pie <- pier(data)
 
 cat(
     capture_widget(simple.pie,
-                   'markdown', height=400, width=800)
+                   'markdown', height=400, width=1200)
 )
 
 ```
@@ -103,7 +103,35 @@ piped.pie <- data %>%
 
 cat(
     capture_widget(piped.pie,
-                   'markdown', height=400, width=800)
+                   'markdown', height=400, width=1200)
 )
 
 ```
+
+
+
+## Advanced Usage
+
+```{r advanced, fig.width=7, fig.align='center'}
+
+advanced.pie <- data %>%
+    pier() %>%
+    pie.size(inner=70, outer=100, width=600, height=500) %>%
+    pie.header(text='Segments', font='Impact', location='pie-center') %>%
+    pie.subtitle(text='by Type') %>%
+    pie.footer(text='Economic Segments using fake data.',
+               location = 'bottom-left') %>%
+    pie.tooltips()
+
+```
+
+<center>
+```{r adv.webshot, echo=FALSE, warning=FALSE, message=FALSE, comment=NA, results='asis'}
+
+cat(
+    capture_widget(advanced.pie,
+                   'markdown', height=600, width=800)
+)
+
+```
+</center>

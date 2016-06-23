@@ -4,8 +4,8 @@
 \alias{pier}
 \title{pier}
 \usage{
-pier(data, width = 400, height = 400, header = NULL, sortOrder = "none",
-  smallSegmentGrouping = FALSE, settings = NULL, ...)
+pier(data, width = NULL, height = NULL, header = NULL,
+  sortOrder = "none", smallSegmentGrouping = FALSE, settings = NULL, ...)
 }
 \arguments{
 \item{data}{data.frame must contain colnames value, label and color}

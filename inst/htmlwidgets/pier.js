@@ -14,6 +14,35 @@ HTMLWidgets.widget({
 
   renderValue: function(el, x, instance) {
     // create pie object and bind it to the element
+
+    // check for size attributes
+    //var chkW = ((x || {}).size || {}).canvasWidth,
+    //    chkH = ((x || {}).size || {}).canvasHeight,
+    //    chkOut = ((x || {}).size || {}).pieOuterRadius;
+
+    if (x.size) {
+
+        if (x.size.canvasWidth === null) {
+            x.size.canvasWidth = el.getBoundingClientRect().width
+        }
+        if (x.size.canvasHeight === null) {
+            x.size.canvasHeight = el.getBoundingClientRect().height
+        }
+        if (x.size.pieOuterRadius === null) {
+            x.size.pieOuterRadius = '90%'
+        }
+
+    } else {
+        x.size = {
+            canvasWidth: el.getBoundingClientRect().width,
+            canvasHeight: el.getBoundingClientRect().height,
+            pieOuterRadius: '90%'
+        }
+    }
+
+
+    console.log(x.size);
+
     var pie = new d3pie(el.id, {
         header: x.header,
         size: x.size,

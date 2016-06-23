@@ -7,22 +7,22 @@ data <- data.frame(label = c('Environment','Education','Business','Community'),
                    color = c("#A6CEE3","#1F78B4","#B2DF8A","#33A02C"))
 
 
-## ----simple--------------------------------------------------------------
+## ----simple, fig.width=7, fig.align='center'-----------------------------
 
 pier(data)
 
 
-## ----small---------------------------------------------------------------
+## ----small, fig.width=7, fig.align='center'------------------------------
 
 data %>%
     pier(smallSegmentGrouping = TRUE, value = 10)
 
 
-## ----advanced------------------------------------------------------------
+## ----advanced, fig.width=7, fig.align='center'---------------------------
 
 data %>%
     pier() %>%
-    pie.size(inner=70, outer=100, width=500, height=500) %>%
+    pie.size(inner=70, outer=100, width=700, height=500) %>%
     pie.header(text='Segments', font='Impact', location='pie-center') %>%
     pie.subtitle(text='by Type') %>%
     pie.footer(text='Economic Segments using fake data.',

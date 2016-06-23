@@ -32,7 +32,7 @@ data <- data.frame(label = c('Environment','Education','Business','Community'),
 
 
 ## Usage with Standard Defaults
-```{r simple}
+```{r simple, fig.width=7, fig.align='center'}
 
 pier(data)
 
@@ -42,7 +42,7 @@ pier(data)
 
 Currently this feature works as expected but the labels are lost. 
 
-```{r small}
+```{r small, fig.width=7, fig.align='center'}
 
 data %>%
     pier(smallSegmentGrouping = TRUE, value = 10)
@@ -52,11 +52,11 @@ data %>%
 
 ## Advanced Usage
 
-```{r advanced}
+```{r advanced, fig.width=7, fig.align='center'}
 
 data %>%
     pier() %>%
-    pie.size(inner=70, outer=100, width=500, height=500) %>%
+    pie.size(inner=70, outer=100, width=700, height=500) %>%
     pie.header(text='Segments', font='Impact', location='pie-center') %>%
     pie.subtitle(text='by Type') %>%
     pie.footer(text='Economic Segments using fake data.',
