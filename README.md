@@ -36,7 +36,9 @@ data <- data.frame(label = c('Environment','Education','Business','Community'),
 simple.pie <- pier(data)
 ```
 
-![widget](img/fileb3d6480e0d7.png)
+<center>
+![widget](img/file9f2681f5f30.png)
+</center>
 
 
 ## Piping
@@ -50,9 +52,9 @@ piped.pie <- data %>%
                 pie.header('My New Header')
 ```
 
-
-![widget](img/fileb3d65793bda.png)
-
+<center>
+![widget](img/file9f2417339e8.png)
+</center>
 
 
 ## Advanced Usage
@@ -61,7 +63,7 @@ piped.pie <- data %>%
 ```r
 advanced.pie <- data %>%
     pier() %>%
-    pie.size(inner=70, outer=100, width=600, height=500) %>%
+    pie.size(inner=70, outer=100) %>%
     pie.header(text='Segments', font='Impact', location='pie-center') %>%
     pie.subtitle(text='by Type') %>%
     pie.footer(text='Economic Segments using fake data.',
@@ -70,5 +72,5 @@ advanced.pie <- data %>%
 ```
 
 <center>
-![widget](img/fileb3d56e94d45.png)
+![widget](img/file9f22257843b.png)
 </center>

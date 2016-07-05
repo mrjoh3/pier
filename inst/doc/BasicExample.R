@@ -7,12 +7,12 @@ data <- data.frame(label = c('Environment','Education','Business','Community'),
                    color = c("#A6CEE3","#1F78B4","#B2DF8A","#33A02C"))
 
 
-## ----simple, fig.width=7, fig.align='center'-----------------------------
+## ----simple, fig.width=7, fig.height=6, fig.align='center'---------------
 
 pier(data)
 
 
-## ----small, fig.width=7, fig.align='center'------------------------------
+## ----small, fig.width=7, fig.height=6, fig.align='center'----------------
 
 data %>%
     pier(smallSegmentGrouping = TRUE, value = 10)

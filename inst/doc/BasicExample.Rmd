@@ -32,7 +32,7 @@ data <- data.frame(label = c('Environment','Education','Business','Community'),
 
 
 ## Usage with Standard Defaults
-```{r simple, fig.width=7, fig.align='center'}
+```{r simple, fig.width=7, fig.height=6, fig.align='center'}
 
 pier(data)
 
@@ -42,7 +42,7 @@ pier(data)
 
 Currently this feature works as expected but the labels are lost. 
 
-```{r small, fig.width=7, fig.align='center'}
+```{r small, fig.width=7, fig.height=6, fig.align='center'}
 
 data %>%
     pier(smallSegmentGrouping = TRUE, value = 10)

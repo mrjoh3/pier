@@ -4,68 +4,75 @@ HTMLWidgets.widget({
 
   type: "output",
 
-  initialize: function(el, width, height) {
-    //console.log("initialize");
-    return {
-      // TODO: add instance fields as required
-    };
+  factory: function(el, width, height) {
 
-  },
+    var pie;
+    var instance = {};
+    var draw_pie = function(x) {
 
-  renderValue: function(el, x, instance) {
-    // create pie object and bind it to the element
+            pie = new d3pie(x.id, {
+                header: x.header,
+                size: x.size,
+                footer: x.footer,
+                tooltips: x.tooltips,
+                labels: x.labels,
+                effects: x.effects,
+                misc: x.misc,
+                data: x.data
+            });
 
-    // check for size attributes
-    //var chkW = ((x || {}).size || {}).canvasWidth,
-    //    chkH = ((x || {}).size || {}).canvasHeight,
-    //    chkOut = ((x || {}).size || {}).pieOuterRadius;
-
-    if (x.size) {
-
-        if (x.size.canvasWidth === null) {
-            x.size.canvasWidth = el.getBoundingClientRect().width
-        }
-        if (x.size.canvasHeight === null) {
-            x.size.canvasHeight = el.getBoundingClientRect().height
-        }
-        if (x.size.pieOuterRadius === null) {
-            x.size.pieOuterRadius = '90%'
-        }
-
-    } else {
-        x.size = {
-            canvasWidth: el.getBoundingClientRect().width,
-            canvasHeight: el.getBoundingClientRect().height,
-            pieOuterRadius: '90%'
-        }
     }
 
 
-    console.log(x.size);
+    return {
 
-    var pie = new d3pie(el.id, {
-        header: x.header,
-        size: x.size,
-        footer: x.footer,
-        tooltips: x.tooltips,
-        labels: x.labels,
-        effects: x.effects,
-        misc: x.misc,
-        data: x.data
-    });
+          renderValue: function(x) {
 
-    },
+            //console.log(x.size);
+            // if size not set get window dimensions
+            if (x.size) {
+                if (x.size.canvasWidth == null) {
+                    x.size.canvasWidth = el.getBoundingClientRect().width;
+                }
+                if (x.size.canvasHeight == null) {
+                    x.size.canvasHeight = el.getBoundingClientRect().height;
+                }
+                if (x.size.pieOuterRadius == null) {
+                    x.size.pieOuterRadius = '90%';
+                }
 
-  resize: function(el, width, height, instance) {
-        // forward resize on to sigma renderers
-    //for (var name in pie.renderers)
-    //      pie.renderers[name].resize(width, height);
-    //  },
+            } else {
+                x.size = {
+                    canvasWidth: el.getBoundingClientRect().width,
+                    canvasHeight: el.getBoundingClientRect().height,
+                    pieOuterRadius: '90%'
+                };
+            }
 
-      // Make the sigma object available as a property on the widget
-      // instance we're returning from factory(). This is generally a
-      // good idea for extensibility--it helps users of this widget
-      // interact directly with sigma, if needed.
-      //s: pie
-  }
+            x.id = el.id;
+            instance.x = x;
+
+            draw_pie(x);
+
+            },
+
+          resize: function(width, height) {
+
+            //pie.destroy()
+            //pie.redraw()
+            x = instance.x;
+
+            // when chart on hidden div ensure that height is not 0
+            x.size.canvasHeight = (height === 0) ? height : width * 0.8;
+            x.size.canvasWidth = width;
+
+            draw_pie(x);
+
+          }
+
+    };
+
+  }//,
+  //p: pie
+
 });

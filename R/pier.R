@@ -58,7 +58,18 @@ pier <- function(data,
     }
 
     # create the widget
-    htmlwidgets::createWidget("pier", x, width = width, height = height)
+    htmlwidgets::createWidget("pier",
+                              x,
+                              width = width,
+                              height = height,
+                              sizingPolicy = htmlwidgets::sizingPolicy(
+                                  #viewer.padding = 0,
+                                  #viewer.paneHeight = 500,
+                                  browser.fill = TRUE,
+                                  viewer.fill = TRUE,
+                                  knitr.defaultWidth = 800,
+                                  knitr.defaultHeight = 400
+                              ))
 }
 
 

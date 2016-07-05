@@ -76,14 +76,16 @@ simple.pie <- pier(data)
 
 ```
 
+<center>
 ```{r data.webshot, echo=FALSE, warning=FALSE, message=FALSE, comment=NA, results='asis'}
 
 cat(
     capture_widget(simple.pie,
-                   'markdown', height=400, width=1200)
+                   'markdown', height=600, width=700)
 )
 
 ```
+</center>
 
 
 ## Piping
@@ -98,16 +100,16 @@ piped.pie <- data %>%
 
 ```
 
-
+<center>
 ```{r pipe.webshot, echo=FALSE, warning=FALSE, message=FALSE, comment=NA, results='asis'}
 
 cat(
     capture_widget(piped.pie,
-                   'markdown', height=400, width=1200)
+                   'markdown', height=600, width=700)
 )
 
 ```
-
+</center>
 
 
 ## Advanced Usage
@@ -116,7 +118,7 @@ cat(
 
 advanced.pie <- data %>%
     pier() %>%
-    pie.size(inner=70, outer=100, width=600, height=500) %>%
+    pie.size(inner=70, outer=100) %>%
     pie.header(text='Segments', font='Impact', location='pie-center') %>%
     pie.subtitle(text='by Type') %>%
     pie.footer(text='Economic Segments using fake data.',
@@ -130,7 +132,7 @@ advanced.pie <- data %>%
 
 cat(
     capture_widget(advanced.pie,
-                   'markdown', height=600, width=800)
+                   'markdown', height=600, width=700)
 )
 
 ```
