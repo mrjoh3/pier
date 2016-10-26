@@ -58,7 +58,7 @@ HTMLWidgets.widget({
 
           resize: function(width, height) {
 
-            //pie.destroy()
+            pie.destroy()
             //pie.redraw()
             x = instance.x;
 
