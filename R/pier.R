@@ -33,7 +33,7 @@ pier <- function(data,
               )
 
     data <- list(sortOrder = sortOrder,
-                 content = toJSON(data))
+                 content = jsonlite::toJSON(data))
 
     if (smallSegmentGrouping) {
         smallSegmentGrouping <- list(enabled = TRUE,
