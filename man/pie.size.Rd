@@ -27,4 +27,3 @@ data.frame(value = c(40, 20, 30),
   pie.size(outer = 80, inner = 50, width = 200, height = 200)
   }
 }
-

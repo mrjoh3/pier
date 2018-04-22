@@ -29,4 +29,3 @@ data.frame(value = c(40, 20, 30),
   pie.footer('with some additional explanation')
   }
 }
-

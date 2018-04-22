@@ -21,10 +21,9 @@ Currently the intention is to wrap the entire [d3pie](http://d3pie.org/#docs-api
 
 You probably already guesssed this bit.
 
-```{r install, eval=FALSE}
 
+```r
 devtools::install_github("mrjoh3/pier")
-
 ```
 
 
@@ -32,8 +31,8 @@ devtools::install_github("mrjoh3/pier")
 
 The `pier` package is intended to be as simple and lightweight as possible. As a starting point the data input must be a `data.frame` with three required columns: `label`, `value` and `color`. From this point most of the defaults from `d3pie` are carried over. Note that all examples here have lost their interactivity. 
 
-```{r data, warning=FALSE, message=FALSE, fig.align='center', fig.width=8}
 
+```r
 library(pier)
 
 data <- data.frame(label = c('Environment','Education','Business','Community'),
@@ -41,18 +40,10 @@ data <- data.frame(label = c('Environment','Education','Business','Community'),
                    color = RColorBrewer::brewer.pal(4, 'Spectral'))
 
 simple.pie <- pier(data)
-
 ```
 
 
-```{r p1, echo=FALSE, eval=FALSE, fig.align='center', fig.width=6, fig.height=4}
 
-simple.pie %>%
-   pie.effects(load  = list(effect = 'none',
-                            speed = 2000)) %>%
-   pie.size(width = 600, height = 450)
-
-```
 
 <center>
 <img src = "img/p1.png" />
@@ -62,8 +53,8 @@ simple.pie %>%
 
 ## Advanced Usage
 
-```{r advanced, fig.width=7, fig.align='center'}
 
+```r
 advanced.pie <- data %>%
     pier() %>%
     pie.size(inner=70, outer=100, width = 600, height = 450) %>%
@@ -72,17 +63,10 @@ advanced.pie <- data %>%
     pie.footer(text='Economic Segments using fake data.',
                location = 'bottom-left') %>%
     pie.tooltips()
-
 ```
 
 
-```{r p2, echo=FALSE, eval=FALSE, fig.align='center', fig.width=6, fig.height=4}
 
-advanced.pie %>%
-   pie.effects(load  = list(effect = 'default',
-                            speed = 1000))
-
-```
 
 <center>
 <img src = "img/p1.png" />

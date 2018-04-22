@@ -39,4 +39,3 @@ data.frame(value = c(40, 20, 30),
               highlightLuminosity = .2)
   }
 }
-

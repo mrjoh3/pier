@@ -15,7 +15,7 @@ License: GPL (>= 3)
 LazyData: TRUE
 Depends:
     jsonlite
-RoxygenNote: 5.0.1
+RoxygenNote: 6.0.1
 Suggests: knitr,
     rmarkdown
 VignetteBuilder: knitr
