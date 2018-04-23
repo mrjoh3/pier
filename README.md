@@ -51,5 +51,5 @@ advanced.pie <- data %>%
 ```
 
 <center>
-<img src = "img/p1.png" />
+<img src = "img/p2.png" />
 </center>
