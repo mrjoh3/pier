@@ -60,6 +60,7 @@ simple.pie %>%
 
 
 
+
 ## Advanced Usage
 
 ```{r advanced, fig.width=7, fig.align='center'}
@@ -85,6 +86,6 @@ advanced.pie %>%
 ```
 
 <center>
-<img src = "img/p1.png" />
+<img src = "img/p2.png" />
 </center> 
 
