@@ -1,7 +1,7 @@
 Package: pier
 Type: Package
 Title: D3 Pie Charts Via R
-Version: 0.1
+Version: 0.1.0
 Date: 2016-03-09
 Authors@R: c(
     person("Matt", "Johnson", email = "mrjoh3@gmail.com",
