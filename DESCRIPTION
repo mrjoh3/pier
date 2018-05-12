@@ -13,7 +13,8 @@ BugReports: https://github.com/mrjoh3/pier/issues
 License: GPL (>= 3)
 LazyData: TRUE
 Imports:
-    jsonlite
+    jsonlite,
+    htmlwidgets
 RoxygenNote: 6.0.1
 Suggests: knitr,
     rmarkdown,
