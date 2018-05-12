@@ -19,7 +19,7 @@ pie.size <- function(pier,
                      outer = 90, inner = NULL,
                      width = NULL, height = NULL) {
 
-    size = list(canvasWidth=width,
+    size <- list(canvasWidth=width,
                 canvasHeight=height,
                 pieInnerRadius=sprintf('%s%%', inner),
                 pieOuterRadius=sprintf('%s%%', outer))
@@ -53,7 +53,7 @@ pie.header <- function(pier,
                       font = NULL,
                       colour = NULL,
                       location = NULL) {
-    title = list(text = text,
+    title <- list(text = text,
                  fontSize = size,
                  font = font,
                  color = colour)
@@ -94,13 +94,13 @@ pie.subtitle <- function(pier,
                       font = NULL,
                       colour = NULL,
                       padding = NULL) {
-    subtitle = list(text = text,
+    subtitle <- list(text = text,
                  fontSize = size,
                  font = font,
                  color = colour)
     subtitle <- Filter(Negate(function(x) is.null(unlist(x))), subtitle)
 
-    header = pier$x$header
+    header <- pier$x$header
 
     header$subtitle <- subtitle
     header$titleSubtitlePadding <- padding
@@ -136,7 +136,7 @@ pie.footer <- function(pier,
 
     stopifnot(location %in% c('bottom-left','bottom-center','bottom-right'))
 
-    footer = list(text = text,
+    footer <- list(text = text,
                     fontSize = size,
                     font = font,
                     color = colour,
@@ -187,13 +187,13 @@ pie.tooltips <- function(pier,
 
     stopifnot(type %in% c('placeholder', 'caption'))
 
-    tooltips = list(enabled = enabled,
+    tooltips <- list(enabled = enabled,
                     type = type,
                     string = string,
                     placeholderParser = placeholderParser)
     tooltips <- Filter(Negate(function(x) is.null(unlist(x))), tooltips)
 
-    styles = list(fadeInSpeed = fadeInSpeed,
+    styles <- list(fadeInSpeed = fadeInSpeed,
                   backgroundColor = backgroundColor,
                   backgroundOpacity = backgroundOpacity,
                   color = color,
@@ -203,7 +203,7 @@ pie.tooltips <- function(pier,
                   padding = padding)
     styles <- Filter(Negate(function(x) is.null(unlist(x))), styles)
 
-    if (length(styles) > 0) tooltips$styles = styles
+    if (length(styles) > 0) tooltips$styles <- styles
 
     pier$x$tooltips <- tooltips #toJSON(tooltips, auto_unbox = TRUE)
 
@@ -331,7 +331,7 @@ pie.labels <- function(pier, ...) {
 #' @export
 pie.effects <- function(pier, ...) {
 
-    effects = list(
+    effects <- list(
         load = list(
             effect = "default", #// none / default
             speed = 1000
@@ -392,7 +392,7 @@ pie.effects <- function(pier, ...) {
 #' @export
 pie.misc <- function(pier, ...) {
 
-    misc = list(
+    misc <- list(
         colors = list(
             background = NULL, #// transparent
             segments = c(

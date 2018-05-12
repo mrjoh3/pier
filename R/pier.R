@@ -54,7 +54,7 @@ pier <- function(data,
     )
 
     if (!is.null(header)) {
-        x$header = list(title=list(text=header))
+        x$header <- list(title=list(text=header))
     }
 
     # create the widget
