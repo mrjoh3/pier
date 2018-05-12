@@ -13,6 +13,8 @@
 #' @param valueType smallSegmentGrouping option must be 'percentage' or 'value'
 #' @param label character smallSegmentGrouping option default is 'Other'
 #' @param color character smallSegmentGrouping option default is '#cccccc'
+#' @param ... variables passed via ...
+#' @importFrom utils modifyList
 #' @examples
 #'\dontrun{
 #' data.frame(value = c(40, 20, 30),

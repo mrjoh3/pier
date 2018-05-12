@@ -6,6 +6,7 @@ output:
     rmarkdown::github_document
 ---
 [![DOI](https://zenodo.org/badge/56191948.svg)](https://zenodo.org/badge/latestdoi/56191948)
+[![Build Status](https://travis-ci.org/mrjoh3/pier.svg?branch=master)](https://travis-ci.org/mrjoh3/pier)
 
 
 
