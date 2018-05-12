@@ -1,7 +1,7 @@
 pier
 ================
 
-[![DOI](https://zenodo.org/badge/56191948.svg)](https://zenodo.org/badge/latestdoi/56191948) [![Build Status](https://travis-ci.org/mrjoh3/pier.svg?branch=master)](https://travis-ci.org/mrjoh3/pier)
+[![DOI](https://zenodo.org/badge/56191948.svg)](https://zenodo.org/badge/latestdoi/56191948) [![Build Status](https://travis-ci.org/mrjoh3/pier.svg?branch=master)](https://travis-ci.org/mrjoh3/pier) [![codecov](https://codecov.io/gh/mrjoh3/pier/branch/master/graph/badge.svg)](https://codecov.io/gh/mrjoh3/pier)
 
 The `pier` package (pronounced pie-r) is a wrapper, or [htmlwidget](http://www.htmlwidgets.org/), for the [d3pie](http://d3pie.org/) javascript library by [Benjamin Keen](https://github.com/benkeen). If you are just wanting to generate a pie chart the d3pie website has a fantastic [generator](http://d3pie.org/#generator) that will create the code that you need. If you are wanting create a chart using [R](https://www.r-project.org/) for embedding in a Rmarkdown document or Shiny App, then you are in the right place.
 
