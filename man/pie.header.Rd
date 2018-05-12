@@ -20,6 +20,9 @@ pie.header(pier, text = NULL, size = NULL, font = NULL, colour = NULL,
 
 \item{location}{character; must be one of 'top-center', 'top-left' or 'pie-center'}
 }
+\description{
+Add header to pie
+}
 \examples{
 \dontrun{
 data.frame(value = c(40, 20, 30),

@@ -20,6 +20,9 @@ pie.footer(pier, text = NULL, size = NULL, font = NULL, colour = NULL,
 
 \item{location}{character; must be one of 'bottom-left','bottom-center','bottom-right'}
 }
+\description{
+Add footer to pie
+}
 \examples{
 \dontrun{
 data.frame(value = c(40, 20, 30),

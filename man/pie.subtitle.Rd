@@ -20,6 +20,9 @@ pie.subtitle(pier, text = NULL, size = NULL, font = NULL, colour = NULL,
 
 \item{padding}{integer pixels}
 }
+\description{
+Add subtitle to the pie
+}
 \examples{
 \dontrun{
 data.frame(value = c(40, 20, 30),

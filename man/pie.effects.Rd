@@ -9,6 +9,8 @@ pie.effects(pier, ...)
 \arguments{
 \item{pier}{object}
 
+\item{...}{variables all passed via ...}
+
 \item{load}{list with options:
 \itemize{
  \item{effect}{: character one of 'none', 'default}

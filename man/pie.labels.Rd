@@ -9,6 +9,8 @@ pie.labels(pier, ...)
 \arguments{
 \item{pier}{object}
 
+\item{...}{variables all passed via ...}
+
 \item{outer}{list with options:
 \itemize{
  \item{format}{character default 'label'}

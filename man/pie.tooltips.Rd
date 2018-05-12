@@ -37,6 +37,9 @@ pie.tooltips(pier, enabled = TRUE, type = "placeholder",
 
 \item{padding}{integer pixels; default = 4}
 }
+\description{
+Add tooltips to pie segments
+}
 \examples{
 \dontrun{
 data.frame(value = c(40, 20, 30),

@@ -9,6 +9,8 @@ pie.misc(pier, ...)
 \arguments{
 \item{pier}{object}
 
+\item{...}{variables all passed via ...}
+
 \item{colors}{list with options:
 \itemize{
  \item{background}{: character color name or hex. Default is NULL results in tansparent}

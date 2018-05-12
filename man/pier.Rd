@@ -30,6 +30,9 @@ control use `pier.title()`}
 
 \item{color}{character smallSegmentGrouping option default is '#cccccc'}
 }
+\description{
+create D3 pie charts
+}
 \examples{
 \dontrun{
 data.frame(value = c(40, 20, 30),

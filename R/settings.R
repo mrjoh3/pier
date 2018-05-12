@@ -1,5 +1,6 @@
 
 #' @title pie.size
+#' @description modify the size of the pie canvas
 #' @param pier object
 #' @param outer integer value converted to percentage size of pie radius within dimensions.
 #' default set to 90 which is enough for most labels
@@ -30,6 +31,7 @@ pie.size <- function(pier,
 }
 
 #' @title pie.header
+#' @description Add header to pie
 #' @param pier object
 #' @param text character main title text
 #' @param size integer font size
@@ -70,6 +72,7 @@ pie.header <- function(pier,
 
 
 #' @title pie.subtitle
+#' @description Add subtitle to the pie
 #' @param pier object
 #' @param text character main title text
 #' @param size integer font size
@@ -112,6 +115,7 @@ pie.subtitle <- function(pier,
 }
 
 #' @title pie.footer
+#' @description Add footer to pie
 #' @param pier object
 #' @param text character main title text
 #' @param size integer font size
@@ -149,6 +153,7 @@ pie.footer <- function(pier,
 
 
 #' @title pie.tooltips
+#' @description Add tooltips to pie segments
 #' @param pier object
 #' @param enabled booleen; default = TRUE
 #' @param type character type of tooltip used, must be 'placeholder' or 'caption'; default = 'placeholder'. For description see [d3pie docs](http://d3pie.org/#docs-tooltips)
@@ -213,6 +218,7 @@ pie.tooltips <- function(pier,
 
 #' @title pie.labels
 #' @description Pass Labelling options to pier object
+#' @importFrom utils modifyList
 #' @param pier object
 #' @param outer list with options:
 ##' \itemize{
@@ -250,6 +256,7 @@ pie.tooltips <- function(pier,
 ##'  \item{style}{: character default }
 ##'  \item{color}{: character "segment" or a hex color}
 ##' }
+##' @param ... variables all passed via ...
 #' @examples
 #'\dontrun{
 #' data.frame(value = c(40, 20, 30),
@@ -305,6 +312,7 @@ pie.labels <- function(pier, ...) {
 
 #' @title pie.effects
 #' @description Pass effects options to pier object
+#'
 #' @param pier object
 #' @param load list with options:
 ##' \itemize{
@@ -319,6 +327,8 @@ pie.labels <- function(pier, ...) {
 ##' }
 #' @param highlightSegmentOnMouseover boolean
 #' @param highlightLuminosity numeric
+#' @param ... variables all passed via ...
+#' @importFrom utils modifyList
 #' @examples
 #'\dontrun{
 #' data.frame(value = c(40, 20, 30),
@@ -381,6 +391,8 @@ pie.effects <- function(pier, ...) {
 ##'  \item{y}{: integer pixels}
 ##' }
 #' @param cssPrefix NULL
+#' @param ... variables all passed via ...
+#' @importFrom utils modifyList
 #' @examples
 #'\dontrun{
 #' data.frame(value = c(40, 20, 30),

@@ -1,5 +1,6 @@
 
 #' @title pier
+#' @description create D3 pie charts
 #' @param data data.frame must contain colnames value, label and color
 #' @param width integer width, pixel-width
 #' @param height integer height, pixel-height

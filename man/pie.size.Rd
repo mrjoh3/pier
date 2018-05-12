@@ -18,6 +18,9 @@ default set to 90 which is enough for most labels}
 
 \item{height}{integer height, pixel-height}
 }
+\description{
+modify the size of the pie canvas
+}
 \examples{
 \dontrun{
 data.frame(value = c(40, 20, 30),
