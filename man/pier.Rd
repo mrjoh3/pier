@@ -22,6 +22,8 @@ control use `pier.title()`}
 
 \item{smallSegmentGrouping}{booleen option to combine segments below percent threshold}
 
+\item{...}{variables passed via ...}
+
 \item{value}{smallSegmentGrouping option threshold for grouping segments}
 
 \item{valueType}{smallSegmentGrouping option must be 'percentage' or 'value'}
