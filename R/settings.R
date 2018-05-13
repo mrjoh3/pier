@@ -119,7 +119,7 @@ pie.subtitle <- function(pier,
 #' @param pier object
 #' @param text character main title text
 #' @param size integer font size
-#' @param font character font name; eg. "Impact"
+#' @param font character font name; eg. "courier"
 #' @param colour character colour name or hex value
 #' @param location character; must be one of 'bottom-left','bottom-center','bottom-right'
 #' @examples

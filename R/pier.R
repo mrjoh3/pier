@@ -15,6 +15,7 @@
 #' @param color character smallSegmentGrouping option default is '#cccccc'
 #' @param ... variables passed via ...
 #' @importFrom utils modifyList
+#' @importFrom htmlwidgets createWidget sizingPolicy
 #' @examples
 #'\dontrun{
 #' data.frame(value = c(40, 20, 30),
@@ -77,10 +78,28 @@ pier <- function(data,
 
 
 
+#' Shiny bindings for pier
+#'
+#' Output and render functions for using pier within Shiny
+#' applications and interactive Rmd documents.
+#'
+#' @param outputId output variable to read from
+#' @param width,height Must be a valid CSS unit (like \code{'100\%'},
+#'   \code{'400px'}, \code{'auto'}) or a number, which will be coerced to a
+#'   string and have \code{'px'} appended.
+#' @param expr An expression that generates a pier
+#' @param env The environment in which to evaluate \code{expr}.
+#' @param quoted Is \code{expr} a quoted expression (with \code{quote()})? This
+#'   is useful if you want to save an expression in a variable.
+#'
+#' @name pier-shiny
+#'
 #' @export
 pierOutput <- function(outputId, width = "100%", height = "100%") {
     shinyWidgetOutput(outputId, "pier", width, height, package = "pier")
 }
+
+#' @rdname pier-shiny
 #' @export
 renderpier <- function(expr, env = parent.frame(), quoted = FALSE) {
     if (!quoted) { expr <- substitute(expr) } # force quoted

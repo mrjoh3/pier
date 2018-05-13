@@ -14,7 +14,7 @@ pie.footer(pier, text = NULL, size = NULL, font = NULL, colour = NULL,
 
 \item{size}{integer font size}
 
-\item{font}{character font name; eg. "Impact"}
+\item{font}{character font name; eg. "courier"}
 
 \item{colour}{character colour name or hex value}
 
