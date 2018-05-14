@@ -59,8 +59,7 @@ simple.pie %>%
 <img src = "img/p1.png" />
 </center>
 
-
-
+|
 
 ## Advanced Usage
 
