@@ -62,12 +62,13 @@ test_that("pie.header works", {
 
 test_that("pie.subtitle works", {
 
-    p_subtitle <- pie.subtitle(p, text='by Type')
+    p_subtitle <- pie.subtitle(p, text = 'by Type')
 
     expect_equal(p_subtitle$x$header$subtitle$text, "by Type")
 
     expect_is(p_subtitle, "pier")
     expect_is(p_subtitle, "htmlwidget")
+
 })
 
 test_that("pie.tootips works", {
@@ -78,6 +79,20 @@ test_that("pie.tootips works", {
 
     expect_is(p_tootips, "pier")
     expect_is(p_tootips, "htmlwidget")
+})
+
+test_that("pie.effects works", {
+
+    p_effects <- pie.effects(p, load  = list(effect = 'default',
+                                             speed = 1000))
+    pe <- p_effects$x$effects$load
+
+    expect_equal(pe$effect, 'default')
+    expect_equal(pe$speed, 1000)
+
+    expect_is(pe, 'list')
+    expect_is(p_effects, "pier")
+    expect_is(p_effects, "htmlwidget")
 })
 
 test_that("pie.effects works", {
