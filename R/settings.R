@@ -216,7 +216,7 @@ pie.tooltips <- function(pier,
 }
 
 
-#' @title pie.labels
+#' @title Label Options
 #' @description Pass Labelling options to pier object
 #' @importFrom utils modifyList
 #' @param pier object
@@ -256,16 +256,15 @@ pie.tooltips <- function(pier,
 ##'  \item{style}{: character default }
 ##'  \item{color}{: character "segment" or a hex color}
 ##' }
-##' @param ... variables all passed via ...
+##' @param ... all variables passed via ...
 #' @examples
-#'\dontrun{
 #' data.frame(value = c(40, 20, 30),
 #'            label = c('red', 'green', 'blue'),
 #'            color = c('red', 'green', 'blue')) %>%
 #'   pier() %>%
 #'   pie.labels(mainLabel = list(font = 'Impact',
 #'                               fontSize = 14))
-#'   }
+#'
 #' @export
 pie.labels <- function(pier, ...) {
 
@@ -363,8 +362,8 @@ pie.effects <- function(pier, ...) {
 }
 
 
-#' @title pie.misc
-#' @description Pass misc options to pier object
+#' @title Miscellaneous Settings
+#' @description Pass miscellaneous options to pier object
 #' @param pier object
 #' @param colors list with options:
 ##' \itemize{
@@ -394,13 +393,12 @@ pie.effects <- function(pier, ...) {
 #' @param ... variables all passed via ...
 #' @importFrom utils modifyList
 #' @examples
-#'\dontrun{
 #' data.frame(value = c(40, 20, 30),
 #'            label = c('red', 'green', 'blue'),
 #'            color = c('red', 'green', 'blue')) %>%
 #'   pier() %>%
 #'   pie.misc(gradient  = list(enabled = TRUE))
-#'   }
+#'
 #' @export
 pie.misc <- function(pier, ...) {
 

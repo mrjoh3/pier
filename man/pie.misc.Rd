@@ -2,7 +2,7 @@
 % Please edit documentation in R/settings.R
 \name{pie.misc}
 \alias{pie.misc}
-\title{pie.misc}
+\title{Miscellaneous Settings}
 \usage{
 pie.misc(pier, ...)
 }
@@ -42,14 +42,13 @@ pie.misc(pier, ...)
 \item{cssPrefix}{NULL}
 }
 \description{
-Pass misc options to pier object
+Pass miscellaneous options to pier object
 }
 \examples{
-\dontrun{
 data.frame(value = c(40, 20, 30),
            label = c('red', 'green', 'blue'),
            color = c('red', 'green', 'blue')) \%>\%
   pier() \%>\%
   pie.misc(gradient  = list(enabled = TRUE))
-  }
+
 }

@@ -132,4 +132,18 @@ test_that("pie.footer works", {
 })
 
 
+context('labels')
 
+test_that('label options can be set', {
+
+    pl <- pie.labels(p,
+                     mainLabel = list(font = 'Impact',
+                                         fontSize = 24),
+                     inner = list(hideWhenLessThanPercentage = 6))
+
+    expect_equal(pl$x$labels$mainLabel$fontSize, 24)
+    expect_equal(pl$x$labels$inner$hideWhenLessThanPercentage, 6)
+
+    expect_is(pl$x$labels$mainLabel, 'list')
+
+})

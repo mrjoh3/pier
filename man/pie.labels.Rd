@@ -2,14 +2,14 @@
 % Please edit documentation in R/settings.R
 \name{pie.labels}
 \alias{pie.labels}
-\title{pie.labels}
+\title{Label Options}
 \usage{
 pie.labels(pier, ...)
 }
 \arguments{
 \item{pier}{object}
 
-\item{...}{variables all passed via ...}
+\item{...}{all variables passed via ...}
 
 \item{outer}{list with options:
 \itemize{
@@ -57,12 +57,11 @@ pie.labels(pier, ...)
 Pass Labelling options to pier object
 }
 \examples{
-\dontrun{
 data.frame(value = c(40, 20, 30),
            label = c('red', 'green', 'blue'),
            color = c('red', 'green', 'blue')) \%>\%
   pier() \%>\%
   pie.labels(mainLabel = list(font = 'Impact',
                               fontSize = 14))
-  }
+
 }
