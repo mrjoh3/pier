@@ -26,22 +26,35 @@ HTMLWidgets.widget({
 
     return {
 
-          renderValue: function(x) {
+          renderValue: function(x, width, height) {
 
             //console.log(x.size);
             // if size not set get window dimensions
             if (x.size) {
+
+                console.log('setting size');
+                console.log(x.size);
+
                 if (x.size.canvasWidth == null) {
+                    console.log('width null');
                     x.size.canvasWidth = el.getBoundingClientRect().width;
                 }
                 if (x.size.canvasHeight == null) {
-                    x.size.canvasHeight = el.getBoundingClientRect().height;
+                    console.log('height null');
+                    if (HTMLWidgets.shinyMode) {
+                        x.size.canvasHeight = el.getBoundingClientRect().width * 0.7;
+                    } else {
+                        x.size.canvasHeight = el.getBoundingClientRect().height;
+                    }
+
                 }
                 if (x.size.pieOuterRadius == null) {
+                    console.log('outer radius null');
                     x.size.pieOuterRadius = '90%';
                 }
 
             } else {
+                console.log('guessing size');
                 x.size = {
                     canvasWidth: el.getBoundingClientRect().width,
                     canvasHeight: el.getBoundingClientRect().height,
@@ -52,11 +65,17 @@ HTMLWidgets.widget({
             x.id = el.id;
             instance.x = x;
 
+            console.log(x);
+
             draw_pie(x);
+
+            console.log('initial render');
 
             },
 
           resize: function(width, height) {
+
+            console.log('enter resize');
 
             pie.destroy()
             //pie.redraw()
