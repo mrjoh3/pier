@@ -5,10 +5,11 @@
 \title{pie.tooltips}
 \usage{
 pie.tooltips(pier, enabled = TRUE, type = "placeholder",
-  string = "{label}: {value}, {percentage}\%", placeholderParser = NULL,
-  fadeInSpeed = 250, backgroundColor = "#000000", backgroundOpacity = 0.5,
-  color = "#efefef", borderRadius = 2, font = "arial", fontSize = 10,
-  padding = 4)
+  string = "{label}: {value}, {percentage}\%",
+  placeholderParser = NULL, fadeInSpeed = 250,
+  backgroundColor = "#000000", backgroundOpacity = 0.5,
+  color = "#efefef", borderRadius = 2, font = "arial",
+  fontSize = 10, padding = 4)
 }
 \arguments{
 \item{pier}{object}

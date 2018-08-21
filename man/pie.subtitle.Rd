@@ -4,8 +4,8 @@
 \alias{pie.subtitle}
 \title{pie.subtitle}
 \usage{
-pie.subtitle(pier, text = NULL, size = NULL, font = NULL, colour = NULL,
-  padding = NULL)
+pie.subtitle(pier, text = NULL, size = NULL, font = NULL,
+  colour = NULL, padding = NULL)
 }
 \arguments{
 \item{pier}{object}
