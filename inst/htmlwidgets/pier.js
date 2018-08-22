@@ -27,8 +27,19 @@ HTMLWidgets.widget({
     return {
 
           renderValue: function(x, width, height) {
-console.log(height);
-console.log(width);
+
+            console.log(height);
+            console.log(width);
+
+
+             if(instance.lastValue){
+                  pie.destroy();
+             }
+             instance.lastValue=x;
+
+
+
+
             //console.log(x.size);
             // if size not set get window dimensions
 //            if (x.size) {
@@ -65,6 +76,7 @@ console.log(width);
 
             x.id = el.id;
             instance.x = x;
+
 
             console.log(x);
 

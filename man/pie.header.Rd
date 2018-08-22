@@ -4,8 +4,8 @@
 \alias{pie.header}
 \title{pie.header}
 \usage{
-pie.header(pier, text = NULL, size = NULL, font = NULL, colour = NULL,
-  location = NULL)
+pie.header(pier, text = NULL, size = NULL, font = NULL,
+  colour = NULL, location = NULL)
 }
 \arguments{
 \item{pier}{object}

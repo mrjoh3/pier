@@ -4,7 +4,8 @@
 \alias{pie.size}
 \title{pie.size}
 \usage{
-pie.size(pier, outer = 90, inner = NULL, width = NULL, height = NULL)
+pie.size(pier, outer = 90, inner = NULL, width = NULL,
+  height = NULL)
 }
 \arguments{
 \item{pier}{object}
