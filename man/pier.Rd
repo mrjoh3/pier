@@ -5,7 +5,8 @@
 \title{pier}
 \usage{
 pier(data, width = NULL, height = NULL, header = NULL,
-  sortOrder = "none", smallSegmentGrouping = FALSE, settings = NULL, ...)
+  sortOrder = "none", smallSegmentGrouping = FALSE, settings = NULL,
+  ...)
 }
 \arguments{
 \item{data}{data.frame must contain colnames value, label and color}

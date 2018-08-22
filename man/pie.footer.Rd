@@ -4,8 +4,8 @@
 \alias{pie.footer}
 \title{pie.footer}
 \usage{
-pie.footer(pier, text = NULL, size = NULL, font = NULL, colour = NULL,
-  location = NULL)
+pie.footer(pier, text = NULL, size = NULL, font = NULL,
+  colour = NULL, location = NULL)
 }
 \arguments{
 \item{pier}{object}
