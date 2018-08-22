@@ -2,7 +2,7 @@ library(shiny)
 library(pier)
 
 ui <- fluidPage(
-    pierOutput("pier_example")
+    pierOutput("pier_example", height = '800px')
 )
 
 server <- function(input, output) {
