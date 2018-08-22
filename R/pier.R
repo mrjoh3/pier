@@ -57,6 +57,12 @@ pier <- function(data,
         settings = settings
     )
 
+    # add default size object
+    x$size <- list(canvasWidth = width,
+                   canvasHeight = height,
+                   pieInnerRadius = NULL,
+                   pieOuterRadius = '90%')
+
     if (!is.null(header)) {
         x$header <- list(title=list(text=header))
     }
@@ -72,7 +78,9 @@ pier <- function(data,
                                   browser.fill = TRUE,
                                   viewer.fill = TRUE,
                                   knitr.defaultWidth = 800,
-                                  knitr.defaultHeight = 400
+                                  knitr.defaultHeight = 400,
+                                  browser.defaultWidth = 800,
+                                  browser.defaultHeight = 400
                               ))
 }
 
