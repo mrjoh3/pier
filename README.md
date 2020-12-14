@@ -1,16 +1,29 @@
 pier
 ================
 
-[![DOI](https://zenodo.org/badge/56191948.svg)](https://zenodo.org/badge/latestdoi/56191948) [![Build Status](https://travis-ci.org/mrjoh3/pier.svg?branch=master)](https://travis-ci.org/mrjoh3/pier) [![codecov](https://codecov.io/gh/mrjoh3/pier/branch/master/graph/badge.svg)](https://codecov.io/gh/mrjoh3/pier)
+[![DOI](https://zenodo.org/badge/56191948.svg)](https://zenodo.org/badge/latestdoi/56191948)
+[![R-CMD-check](https://github.com/mrjoh3/pier/workflows/R-CMD-check/badge.svg)](https://github.com/mrjoh3/pier/actions)
+[![codecov](https://codecov.io/gh/mrjoh3/pier/branch/master/graph/badge.svg)](https://codecov.io/gh/mrjoh3/pier)
 
-The `pier` package (pronounced pie-r) is a wrapper, or [htmlwidget](http://www.htmlwidgets.org/), for the [d3pie](http://d3pie.org/) javascript library by [Benjamin Keen](https://github.com/benkeen). If you are just wanting to generate a pie chart the d3pie website has a fantastic [generator](http://d3pie.org/#generator) that will create the code that you need. If you are wanting create a chart using [R](https://www.r-project.org/) for embedding in a Rmarkdown document or Shiny App, then you are in the right place.
+The `pier` package (pronounced pie-r) is a wrapper, or
+[htmlwidget](http://www.htmlwidgets.org/), for the
+[d3pie](http://d3pie.org/) javascript library by [Benjamin
+Keen](https://github.com/benkeen). If you are just wanting to generate a
+pie chart the d3pie website has a fantastic
+[generator](http://d3pie.org/#generator) that will create the code that
+you need. If you are wanting create a chart using
+[R](https://www.r-project.org/) for embedding in a Rmarkdown document or
+Shiny App, then you are in the right place.
 
-The `d3pie` library is very versatile and includes a lot of options. Currently this package only wraps the [configuration object](http://d3pie.org/#docs-configuration). Even with this current limitation a wide range of options are available.
+The `d3pie` library is very versatile and includes a lot of options.
+Currently this package only wraps the [configuration
+object](http://d3pie.org/#docs-configuration). Even with this current
+limitation a wide range of options are available.
 
-Currently the intention is to wrap the entire [d3pie](http://d3pie.org/#docs-api) api.
+Currently the intention is to wrap the entire
+[d3pie](http://d3pie.org/#docs-api) api.
 
-Installation
-------------
+## Installation
 
 You probably already guesssed this bit.
 
@@ -18,10 +31,13 @@ You probably already guesssed this bit.
 devtools::install_github("mrjoh3/pier")
 ```
 
-Usage
------
+## Usage
 
-The `pier` package is intended to be as simple and lightweight as possible. As a starting point the data input must be a `data.frame` with three required columns: `label`, `value` and `color`. From this point most of the defaults from `d3pie` are carried over. Note that all examples here have lost their interactivity.
+The `pier` package is intended to be as simple and lightweight as
+possible. As a starting point the data input must be a `data.frame` with
+three required columns: `label`, `value` and `color`. From this point
+most of the defaults from `d3pie` are carried over. Note that all
+examples here have lost their interactivity.
 
 ``` r
 library(pier)
@@ -31,14 +47,19 @@ data <- data.frame(label = c('Environment','Education','Business','Community'),
                    color = RColorBrewer::brewer.pal(4, 'Spectral'))
 
 simple.pie <- pier(data)
+
+htmlwidgets::onRender(simple.pie, 'document.getElementsByTagName("svg")[0].setAttribute("viewBox", "")')
 ```
 
+<img src="README_files/figure-gfm/data-1.png" style="display: block; margin: auto;" />
+
 <center>
+
 <img src = "img/p1.png" />
+
 </center>
 
-Advanced Usage
---------------
+## Advanced Usage
 
 ``` r
 advanced.pie <- data %>%
@@ -52,5 +73,7 @@ advanced.pie <- data %>%
 ```
 
 <center>
+
 <img src = "img/p2.png" />
+
 </center>

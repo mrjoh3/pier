@@ -6,7 +6,7 @@ output:
     rmarkdown::github_document
 ---
 [![DOI](https://zenodo.org/badge/56191948.svg)](https://zenodo.org/badge/latestdoi/56191948)
-[![Build Status](https://travis-ci.org/mrjoh3/pier.svg?branch=master)](https://travis-ci.org/mrjoh3/pier)
+[![R-CMD-check](https://github.com/mrjoh3/pier/workflows/R-CMD-check/badge.svg)](https://github.com/mrjoh3/pier/actions)
 [![codecov](https://codecov.io/gh/mrjoh3/pier/branch/master/graph/badge.svg)](https://codecov.io/gh/mrjoh3/pier)
 
 
@@ -42,6 +42,8 @@ data <- data.frame(label = c('Environment','Education','Business','Community'),
                    color = RColorBrewer::brewer.pal(4, 'Spectral'))
 
 simple.pie <- pier(data)
+
+htmlwidgets::onRender(simple.pie, 'document.getElementsByTagName("svg")[0].setAttribute("viewBox", "")')
 
 ```
 
