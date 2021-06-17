@@ -1,6 +1,6 @@
 ---
 title: "pier"
-#author: "mj"
+#author: "mrj"
 #date: "10 May 2016"
 output: 
     rmarkdown::github_document
